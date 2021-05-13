@@ -1,0 +1,22 @@
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 14
+# endif
+
+# include <fcntl.h>	// open() and O_XXX flags
+# include <sys/stat.h>	// S_IXXX flags
+# include <sys/types.h>	// mode_t
+# include <unistd.h>	// close()
+# include <stdlib.h>
+# include <stdio.h>
+
+int		get_next_line(int fd, char **line);
+size_t	ft_strlen(const char *str, char c);
+char	*ft_strdup(const char *s1);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+#endif

@@ -1,0 +1,6 @@
+.vscode/
+gnlTester/
+.DS_Store
+a.out*
+run
+# *.txt
