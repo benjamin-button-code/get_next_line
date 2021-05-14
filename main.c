@@ -1,18 +1,21 @@
 #include "get_next_line.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	char	*line;
 	int		fd;
 
-	fd = open("text.txt", O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
+	while (argc > 0)
 	{
-		printf("%s\n", line);
+		fd = open(argv[argc], O_RDONLY);
+		while (get_next_line(fd, &line) > 0)
+		{
+			printf("%s\n", line);
+			free(line);
+			line = NULL;
+		}
 		free(line);
-		line = NULL;
-		printf("----------------------------------------\n");
+		argc--;
 	}
-	free(line);
 	return (0);
 }

@@ -2,7 +2,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 14
+#  define BUFFER_SIZE 500
 # endif
 
 # include <fcntl.h>	// open() and O_XXX flags
@@ -11,6 +11,7 @@
 # include <unistd.h>	// close()
 # include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
 
 int		get_next_line(int fd, char **line);
 size_t	ft_strlen(const char *str, char c);
