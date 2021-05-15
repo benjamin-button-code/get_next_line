@@ -12,22 +12,23 @@ size_t	ft_strlen(const char *str, char c)
 
 char	*ft_strdup(const char *s1)
 {
-	size_t	size;
-	size_t	i;
-	char	*dublicat_str;
+	char	*duplicate_str;
+	char	*start;
+	char	*temp;
+	char	*str1;
 
-	i = 0;
-	size = ft_strlen(s1, 0);
-	dublicat_str = (char *)malloc((size + 1) * sizeof(char));
-	if (!dublicat_str)
+	str1 = (char *)s1;
+	temp = str1;
+	while (*temp)
+		temp++;
+	duplicate_str = (char *)malloc(sizeof(char) * (temp - str1 + 1));
+	if (!duplicate_str)
 		return (NULL);
-	while (s1[i])
-	{
-		dublicat_str[i] = s1[i];
-		i++;
-	}
-	dublicat_str[i] = '\0';
-	return (dublicat_str);
+	start = duplicate_str;
+	while (*str1)
+		*duplicate_str++ = *str1++;
+	*duplicate_str = '\0';
+	return (start);
 }
 
 char	*ft_strchr(const char *s, int c)
@@ -49,48 +50,48 @@ char	*ft_strchr(const char *s, int c)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*j_str;
-	size_t	i;
-	size_t	j;
+	char	*start_str;
+	char	*str1;
+	char	*str2;
 
-	i = 0;
-	j = 0;
+	str1 = (char *)s1;
+	str2 = (char *)s2;
 	if (!s1 || !s2)
 		return (NULL);
-	j_str = (char *)malloc(sizeof(char) * (ft_strlen(s1, 0)
-				+ ft_strlen(s2, 0) + 1));
+	j_str = (char *)malloc(sizeof(char) * (ft_strlen(s1, 0) + ft_strlen(s2, 0) + 1));
 	if (!j_str)
-		return (NULL);
-	while (s1[i])
-		j_str[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		j_str[j++] = s2[i++];
-	j_str[j] = '\0';
-	return (j_str);
+		return (NULL);	
+	start_str = j_str;
+	while (*str1)
+		*j_str++ = *str1++;
+	while (*str2)
+		*j_str++ = *str2++;
+	*j_str = '\0';
+	return (start_str);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*str_start;
+	char	*str_end;
 	char	*sub_str;
-	size_t	i;
-	size_t	slen;
+	char	*res_start;
 
-	i = 0;
-	slen = ft_strlen(s, 0);
-	if (!s || len <= 0 || start >= slen)
+	str_start = (char *)s;
+	str_end = str_start;
+	while (*str_end)
+		str_end++;
+	if (!s || len <= 0 || start >= (str_end - str_start))
 		return (ft_strdup(""));
-	if (len > slen)
-		len = slen;
+	if ((long)len > (str_end - str_start))
+		len = (str_end - str_start);
 	sub_str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!sub_str)
 		return (NULL);
-	while (s[start] && i < len)
-	{
-		sub_str[i] = s[start];
-		i++;
-		start++;
-	}
-	if (i == len)
-		sub_str[i] = '\0';
-	return (sub_str);
+	res_start = sub_str;
+	str_start += start;
+	while (len-- && *str_start)
+		*sub_str++ = *str_start++;
+	*sub_str = '\0';
+	return (res_start);
 }

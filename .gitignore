@@ -3,4 +3,6 @@ gnlTester/
 .DS_Store
 a.out*
 run
+out
+gnl
 # *.txt
