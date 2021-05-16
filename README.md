@@ -2,9 +2,12 @@
 Function for line-by-line reading. Project from Ecole42.
 
 ## Usage
-1. Emm... look at main and figure it out.
-2. Compile file with `gcc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c -I get_next_line.h -o gnl`.
-3. Write in terminal `./gnl`.
+- `make compile`: compile program.
+- `make clean`: delete "out" and "gnl"(program).
+- `make re`: make clean and recompile program.
+- `make war`: run program with text "War and piece", write it into "out" and show you time.
+- `make text`: run program with text "text", write it into "out" and show you time.
+- `make null`: run program with text "null"(empty file), write it into "out" and show you time.
 
 ## Description
 Function write in line which read from a
