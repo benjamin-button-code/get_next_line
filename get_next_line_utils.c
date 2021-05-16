@@ -31,22 +31,6 @@ char	*ft_strdup(const char *s1)
 	return (start);
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	char	*str;
-
-	str = (char *)s;
-	if (c == 0)
-		return (str + ft_strlen(str, 0));
-	while (*str)
-	{
-		if (*str == (char)c)
-			return (str);
-		str++;
-	}
-	return (0);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*j_str;
@@ -94,4 +78,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		*sub_str++ = *str_start++;
 	*sub_str = '\0';
 	return (res_start);
+}
+
+int	is_newline(char *str)
+{
+	while (*str)
+	{
+		if (*str == '\n')
+			return (1);
+		str++;
+	}
+	return (0);
 }

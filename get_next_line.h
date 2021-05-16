@@ -14,10 +14,10 @@
 # include <string.h>
 
 int		get_next_line(int fd, char **line);
+int		is_newline(char *str);
 size_t	ft_strlen(const char *str, char c);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
